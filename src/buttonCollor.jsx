@@ -14,7 +14,7 @@ const ButtonComponent = () => {
   return (
     <div>
       <button onClick={colorChange}>Меняй</button>
-      <p style={style}>Текст, которыё меняет цвет</p>
+      <p style={style}>Текст, который меняет цвет</p>
     </div>
   );
 };
