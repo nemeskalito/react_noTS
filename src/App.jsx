@@ -1,74 +1,43 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React, { useState, useEffect } from "react";
 import "./App.css";
-// function App() {
-//   const str = "Hello world!";
-//   const num = 25;
-//   const boolean = true;
-//   const obj = {};
-//   const func = () => {};
-//   const arr = [1, 2, 3, 4, 5];
-//   return (
-//     (<Hello str={str} />),
-//     (<Num num={num} />),
-//     (<Boolean bool={boolean} />),
-//     (<Obj obj={obj} />),
-//     (<Func func={func} />),
-//     (<Arr arr={arr} />)
-//   );
-// }
+import LifecycleComponent from "./LifeCycleComponent";
+import LifecycleComponentFunc from "./LifecycleComponentFunc";
+const App = () => {
+  const [visibility1, useVisibility1] = useState(true);
+  const [visibility2, useVisibility2] = useState(true);
 
-// function Hello({ str }) {
-//   return <div>{str}</div>;
-// }
-// function Num({ num }) {
-//   return <button>{num}</button>;
-// }
-// function Boolean({ boolean }) {
-//   return <p>{boolean}</p>;
-// }
-// function Obj({ obj }) {
-//   return <div>{obj}</div>;
-// }
-// function Func({ func }) {
-//   return <div>{func}</div>;
-// }
-// function Arr({ arr }) {
-//   return <div>{arr}</div>;
-// }
-// export default Hello;
-function App() {
-  const str = "Hello world!";
-  const num = 25;
-  const boolean = true;
-  const obj = {};
-  const func = () => {};
-  const arr = [1, 2, 3, 4, 5];
+  const handleClick1 = () => {
+    useVisibility1((visibility1) => !visibility1);
+  };
+  const handleClick2 = () => {
+    useVisibility2((visibility2) => !visibility2);
+  };
+  const style = {
+    border: "1px solid white",
+    "border-radius": "20px",
+    padding: "20px",
+    "min-width": "200px",
+  };
+  const display = {
+    display: "flex",
+  };
   return (
-    (<Hello str={str} />),
-    (<Num num={num} />),
-    (<Boolean bool={boolean} />),
-    (<Obj obj={obj} />),
-    (<Func func={func} />),
-    (<Arr arr={arr} />)
+    <div style={display}>
+      <div style={style}>
+        {visibility1 && <LifecycleComponent />}
+        <button onClick={handleClick1}>
+          {visibility1 ? "Удалю" : "Восстановлю"}
+        </button>
+      </div>
+      <br />
+      <div style={style}>
+        {visibility2 && <LifecycleComponentFunc />}
+        <button onClick={handleClick2}>
+          {visibility2 ? "Удалить" : "Восстановить"}
+        </button>
+      </div>
+    </div>
   );
-}
-function Hello({ str }) {
-  return <div>{str}</div>;
-}
-function Num({ num }) {
-  return <button>{num}</button>;
-}
-function Boolean({ boolean }) {
-  return <p>{boolean}</p>;
-}
-function Obj({ obj }) {
-  return <div>{obj}</div>;
-}
-function Func({ func }) {
-  return <div>{func}</div>;
-}
-function Arr({ arr }) {
-  return <div>{arr}</div>;
-}
+};
+
+export default App;
