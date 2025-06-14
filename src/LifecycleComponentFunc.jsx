@@ -3,8 +3,13 @@ import "./App.css";
 
 const LifecycleComponentFunc = () => {
   const [count, useCount] = useState(0);
+  const [displayCount, useDisplayCount] = useState(0);
   const handleClick = () => {
-    useCount((count) => ++count);
+    const newCount = count + 1;
+    useCount(newCount);
+    if (newCount % 2 == 0) {
+      useDisplayCount(newCount);
+    }
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -19,17 +24,15 @@ const LifecycleComponentFunc = () => {
       console.log("Удалено");
     };
   }, []);
-
   useEffect(() => {
-    console.log(count);
-  }, [count]);
-
+    console.log(displayCount);
+  }, [displayCount]);
   return (
     <div>
       <p> Функциональный компонент</p>
       <div>
         <button onClick={handleClick}>Кликай</button>
-        <p>{count}</p>
+        <p>{displayCount}</p>
       </div>
     </div>
   );
