@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-	display: flex;
+  display: flex;
 }
 
 .logo {
@@ -40,4 +40,15 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.app-visibility {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 20px;
+  min-width: 200px;
+}
+
+.app-display {
+  display: flex;
 }

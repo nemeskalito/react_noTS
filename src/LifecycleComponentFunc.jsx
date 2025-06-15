@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 const LifecycleComponentFunc = () => {
-  const [count, useCount] = useState(0);
-  const [displayCount, useDisplayCount] = useState(0);
+  const [count, setCount] = useState(0);
+  const [displayCount, setDisplayCount] = useState(0);
   const handleClick = () => {
     const newCount = count + 1;
-    useCount(newCount);
+    setCount(newCount);
     if (newCount % 2 == 0) {
-      useDisplayCount(newCount);
+      setDisplayCount(newCount);
     }
   };
   useEffect(() => {

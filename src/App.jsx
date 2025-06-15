@@ -3,37 +3,29 @@ import "./App.css";
 import LifecycleComponent from "./LifeCycleComponent";
 import LifecycleComponentFunc from "./LifecycleComponentFunc";
 const App = () => {
-  const [visibility1, useVisibility1] = useState(true);
-  const [visibility2, useVisibility2] = useState(true);
+  const [classVisibility, setClassVisibility] = useState(true);
+  const [funcVisibility, setFuncVisibility] = useState(true);
 
-  const handleClick1 = () => {
-    useVisibility1((visibility1) => !visibility1);
+  const handleClickClass = () => {
+    setClassVisibility((classVisibility) => !classVisibility);
   };
-  const handleClick2 = () => {
-    useVisibility2((visibility2) => !visibility2);
+  const handleClickFunc = () => {
+    setFuncVisibility((funcVisibility) => !funcVisibility);
   };
-  const style = {
-    border: "1px solid white",
-    "border-radius": "20px",
-    padding: "20px",
-    "min-width": "200px",
-  };
-  const display = {
-    display: "flex",
-  };
+
   return (
-    <div style={display}>
-      <div style={style}>
-        {visibility1 && <LifecycleComponent />}
-        <button onClick={handleClick1}>
-          {visibility1 ? "Удалю" : "Восстановлю"}
+    <div className="app-display">
+      <div className="app-visibility">
+        {classVisibility && <LifecycleComponent />}
+        <button onClick={handleClickClass}>
+          {classVisibility ? "Удалю" : "Восстановлю"}
         </button>
       </div>
       <br />
-      <div style={style}>
-        {visibility2 && <LifecycleComponentFunc />}
-        <button onClick={handleClick2}>
-          {visibility2 ? "Удалить" : "Восстановить"}
+      <div className="app-visibility">
+        {funcVisibility && <LifecycleComponentFunc />}
+        <button onClick={handleClickFunc}>
+          {funcVisibility ? "Удалить" : "Восстановить"}
         </button>
       </div>
     </div>
