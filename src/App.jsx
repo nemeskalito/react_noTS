@@ -1,33 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import LifecycleComponent from "./LifeCycleComponent";
-import LifecycleComponentFunc from "./LifecycleComponentFunc";
+import List from "./List";
 const App = () => {
-  const [classVisibility, setClassVisibility] = useState(true);
-  const [funcVisibility, setFuncVisibility] = useState(true);
-
-  const handleClickClass = () => {
-    setClassVisibility((classVisibility) => !classVisibility);
-  };
-  const handleClickFunc = () => {
-    setFuncVisibility((funcVisibility) => !funcVisibility);
-  };
-
+  const array = [1, 2, 3, 4, 5, 6];
   return (
-    <div className="app-display">
-      <div className="app-visibility">
-        {classVisibility && <LifecycleComponent />}
-        <button onClick={handleClickClass}>
-          {classVisibility ? "Удалю" : "Восстановлю"}
-        </button>
-      </div>
-      <br />
-      <div className="app-visibility">
-        {funcVisibility && <LifecycleComponentFunc />}
-        <button onClick={handleClickFunc}>
-          {funcVisibility ? "Удалить" : "Восстановить"}
-        </button>
-      </div>
+    <div>
+      <List array={array} />
     </div>
   );
 };

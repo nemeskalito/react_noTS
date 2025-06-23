@@ -52,3 +52,7 @@
 .app-display {
   display: flex;
 }
+
+.list {
+  list-style: none;
+}
