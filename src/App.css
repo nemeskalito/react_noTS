@@ -55,4 +55,10 @@
 
 .list {
   list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.app-list {
+  display: flex;
 }

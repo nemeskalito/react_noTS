@@ -4,9 +4,11 @@ import "./App.css";
 const List = (props) => {
   return props.array.map((item, index) => {
     return (
-      <li className="list" key={index}>
-        <ListState item={item} />
-      </li>
+      <div className="list">
+        <li key={index}>
+          <ListState item={item} />
+        </li>
+      </div>
     );
   });
 };
@@ -17,10 +19,11 @@ const ListState = (props) => {
     setClick((value) => !value);
   };
   return (
-    <button onClick={handleClick}>
-      {click ? "!!!" : ""}
+    <div className="list">
       {props.item}
-    </button>
+      {click ? "!!!" : ""}
+      <button onClick={handleClick}></button>
+    </div>
   );
 };
 
